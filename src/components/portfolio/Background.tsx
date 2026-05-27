@@ -13,34 +13,52 @@ export function Background() {
     damping: 20,
   });
   const gridScale = useTransform(scrollY, [0, SCROLL_RANGE], [1, 1.25]);
-  const blob1Y = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -700]), {
-    stiffness: 50,
-    damping: 18,
-  });
+  const blob1Y = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -700]),
+    {
+      stiffness: 50,
+      damping: 18,
+    },
+  );
   const blob1X = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, 200]), {
     stiffness: 50,
     damping: 18,
   });
-  const blob2Y = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -1100]), {
-    stiffness: 50,
-    damping: 18,
-  });
-  const blob2X = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -250]), {
-    stiffness: 50,
-    damping: 18,
-  });
-  const blob3Y = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -400]), {
-    stiffness: 50,
-    damping: 18,
-  });
-  const blob4Y = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -900]), {
-    stiffness: 50,
-    damping: 18,
-  });
-  const starsY = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -300]), {
-    stiffness: 60,
-    damping: 20,
-  });
+  const blob2Y = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -1100]),
+    {
+      stiffness: 50,
+      damping: 18,
+    },
+  );
+  const blob2X = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -250]),
+    {
+      stiffness: 50,
+      damping: 18,
+    },
+  );
+  const blob3Y = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -400]),
+    {
+      stiffness: 50,
+      damping: 18,
+    },
+  );
+  const blob4Y = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -900]),
+    {
+      stiffness: 50,
+      damping: 18,
+    },
+  );
+  const starsY = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -300]),
+    {
+      stiffness: 60,
+      damping: 20,
+    },
+  );
 
   // Mouse parallax keeps the background feeling alive.
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -78,7 +96,7 @@ export function Background() {
                 left: `${left}%`,
                 width: size,
                 height: size,
-                opacity: 0.15 + ((i % 5) / 10),
+                opacity: 0.15 + (i % 5) / 10,
               }}
             />
           );

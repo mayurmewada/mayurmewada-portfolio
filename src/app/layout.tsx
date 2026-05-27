@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 // Ignore missing type declarations for CSS imports in this Next.js project
-// @ts-ignore: Implicit any for CSS module
+// @ts-expect-error: Implicit any for CSS module
 import "../styles.css";
 
 export const metadata: Metadata = {

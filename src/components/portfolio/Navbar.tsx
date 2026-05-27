@@ -34,12 +34,22 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl px-4">
         <nav
           className={`flex items-center justify-between rounded-2xl px-5 transition-all ${
-            isScrolled ? "bg-background/60 backdrop-blur-sm border border-white/5 shadow-lg" : ""
+            isScrolled
+              ? "bg-background/60 backdrop-blur-sm border border-white/5 shadow-lg"
+              : ""
           }`}
         >
-          <a href="#home" className="flex items-center gap-2 font-display text-base font-semibold">
+          <a
+            href="#home"
+            className="flex items-center gap-2 font-display text-base font-semibold"
+          >
             <span className="grid h-10 w-10">
-              <Image src={"/assets/logo.png"} alt="Logo" width={40} height={40}></Image>
+              <Image
+                src={"/assets/logo.png"}
+                alt="Logo"
+                width={40}
+                height={40}
+              ></Image>
             </span>
           </a>
           <ul className="hidden items-center gap-1 md:flex my-3">
@@ -67,9 +77,15 @@ export function Navbar() {
           >
             {/* Simple hamburger -> X animation for mobile menu */}
             <div className="flex flex-col gap-1.5">
-              <span className={`h-0.5 w-5 bg-current transition-transform ${isMenuOpen ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`h-0.5 w-5 bg-current transition-opacity ${isMenuOpen ? "opacity-0" : ""}`} />
-              <span className={`h-0.5 w-5 bg-current transition-transform ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+              <span
+                className={`h-0.5 w-5 bg-current transition-transform ${isMenuOpen ? "translate-y-2 rotate-45" : ""}`}
+              />
+              <span
+                className={`h-0.5 w-5 bg-current transition-opacity ${isMenuOpen ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`h-0.5 w-5 bg-current transition-transform ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+              />
             </div>
           </button>
         </nav>

@@ -16,25 +16,53 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
 const channels = [
-  { icon: Mail, label: "Email", value: "mayurmewada00@gmail.com", href: "mailto:mayur.mewada@example.com" },
-  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/mayurmewada", href: "https://linkedin.com/in/mayurmewada" },
-  { icon: Github, label: "GitHub", value: "github.com/mayurmewada", href: "https://github.com/mayurmewada" },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "mayurmewada00@gmail.com",
+    href: "mailto:mayur.mewada@example.com",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/mayurmewada",
+    href: "https://linkedin.com/in/mayurmewada",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "github.com/mayurmewada",
+    href: "https://github.com/mayurmewada",
+  },
 ];
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
+  name: z
+    .string()
+    .trim()
+    .min(1, "Name is required")
+    .max(100, "Name is too long"),
   email: z.string().trim().email("Enter a valid email").max(255),
-  message: z.string().trim().min(5, "Message must be at least 5 characters").max(1000, "Message is too long"),
+  message: z
+    .string()
+    .trim()
+    .min(5, "Message must be at least 5 characters")
+    .max(1000, "Message is too long"),
 });
 
 function ContactForm({ onClose }: { onClose: () => void }) {
-  const [formValues, setFormValues] = useState({ name: "", email: "", message: "" });
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (key: keyof typeof formValues) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setFormValues((v) => ({ ...v, [key]: e.target.value }));
+  const handleChange =
+    (key: keyof typeof formValues) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+      setFormValues((v) => ({ ...v, [key]: e.target.value }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,7 +103,9 @@ function ContactForm({ onClose }: { onClose: () => void }) {
           disabled={isSubmitting}
           className="bg-white/5 border-white/10"
         />
-        {fieldErrors.name && <p className="text-xs text-destructive">{fieldErrors.name}</p>}
+        {fieldErrors.name && (
+          <p className="text-xs text-destructive">{fieldErrors.name}</p>
+        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
@@ -88,7 +118,9 @@ function ContactForm({ onClose }: { onClose: () => void }) {
           disabled={isSubmitting}
           className="bg-white/5 border-white/10"
         />
-        {fieldErrors.email && <p className="text-xs text-destructive">{fieldErrors.email}</p>}
+        {fieldErrors.email && (
+          <p className="text-xs text-destructive">{fieldErrors.email}</p>
+        )}
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
@@ -101,7 +133,9 @@ function ContactForm({ onClose }: { onClose: () => void }) {
           disabled={isSubmitting}
           className="bg-white/5 border-white/10 resize-none"
         />
-        {fieldErrors.message && <p className="text-xs text-destructive">{fieldErrors.message}</p>}
+        {fieldErrors.message && (
+          <p className="text-xs text-destructive">{fieldErrors.message}</p>
+        )}
       </div>
       <button
         type="submit"
@@ -132,7 +166,11 @@ export function Contact() {
       <div className="mx-auto max-w-4xl">
         <SectionHeader
           eyebrow="Contact"
-          title={<>Let's <span className="gradient-text">build</span> something</>}
+          title={
+            <>
+              Let's <span className="gradient-text">build</span> something
+            </>
+          }
           subtitle="Open to Frontend / React / Next.js opportunities — full-time, contract, or freelance."
         />
         <FadeIn>
@@ -140,7 +178,7 @@ export function Contact() {
             <div className="absolute -top-32 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-violet-500/20 blur-3xl" />
             <div className="relative grid gap-4 md:grid-cols-3">
               {channels.map((c) => (
-              <a
+                <a
                   key={c.label}
                   href={c.href}
                   target="_blank"
@@ -150,8 +188,12 @@ export function Contact() {
                   <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 transition-transform group-hover:scale-110">
                     <c.icon className="h-5 w-5 text-background" />
                   </div>
-                  <div className="mt-4 text-[11px] uppercase tracking-wider text-muted-foreground">{c.label}</div>
-                  <div className="mt-1 truncate w-full text-sm text-foreground">{c.value}</div>
+                  <div className="mt-4 text-[11px] uppercase tracking-wider text-muted-foreground">
+                    {c.label}
+                  </div>
+                  <div className="mt-1 truncate w-full text-sm text-foreground">
+                    {c.value}
+                  </div>
                 </a>
               ))}
             </div>
@@ -182,7 +224,8 @@ export function Contact() {
           </div>
         </FadeIn>
         <div className="mt-12 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Mayur Mewada · Built with React, Tailwind & Framer Motion
+          © {new Date().getFullYear()} Mayur Mewada · Built with React, Tailwind
+          & Framer Motion
         </div>
       </div>
     </section>

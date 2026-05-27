@@ -3,7 +3,7 @@ import { ArrowRight, Mail, Sparkles } from "lucide-react";
 
 const snippets = [
   "const dev = () => 'Mayur';",
-  "<Component className=\"glow\" />",
+  '<Component className="glow" />',
   "useEffect(() => ship(), [])",
   "npm run build && deploy",
 ];
@@ -14,25 +14,40 @@ export function Hero() {
   const SCROLL_RANGE = 800;
 
   // Parallax for the main hero content.
-  const heroContentY = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, 250]), {
-    stiffness: 60,
-    damping: 20,
-  });
+  const heroContentY = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, 250]),
+    {
+      stiffness: 60,
+      damping: 20,
+    },
+  );
   const heroContentOpacity = useTransform(scrollY, [0, 600], [1, 0]);
   const heroContentScale = useTransform(scrollY, [0, SCROLL_RANGE], [1, 0.85]);
-  const chipNearY = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -200]), {
-    stiffness: 50,
-    damping: 18,
-  });
-  const chipFarY = useSpring(useTransform(scrollY, [0, SCROLL_RANGE], [0, -400]), {
-    stiffness: 50,
-    damping: 18,
-  });
+  const chipNearY = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -200]),
+    {
+      stiffness: 50,
+      damping: 18,
+    },
+  );
+  const chipFarY = useSpring(
+    useTransform(scrollY, [0, SCROLL_RANGE], [0, -400]),
+    {
+      stiffness: 50,
+      damping: 18,
+    },
+  );
 
   return (
-    <section id="home" className="relative flex min-h-screen items-center justify-center px-4 pt-32 pb-20">
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center justify-center px-4 pt-32 pb-20"
+    >
       {/* Floating code chips (desktop only). */}
-      <motion.div className="pointer-events-none absolute inset-0 hidden md:block" style={{ y: chipNearY }}>
+      <motion.div
+        className="pointer-events-none absolute inset-0 hidden md:block"
+        style={{ y: chipNearY }}
+      >
         {snippets.map((s, i) => (
           <motion.div
             key={s}
@@ -54,7 +69,11 @@ export function Hero() {
 
       <motion.div
         className="relative z-10 mx-auto max-w-4xl text-center"
-        style={{ y: heroContentY, opacity: heroContentOpacity, scale: heroContentScale }}
+        style={{
+          y: heroContentY,
+          opacity: heroContentOpacity,
+          scale: heroContentScale,
+        }}
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,7 +100,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-5 text-base text-muted-foreground md:text-lg"
         >
-          Frontend Engineer <span className="text-foreground/60">·</span> React.js / Next.js Developer
+          Frontend Engineer <span className="text-foreground/60">·</span>{" "}
+          React.js / Next.js Developer
         </motion.p>
 
         <motion.p
@@ -91,8 +111,9 @@ export function Hero() {
           className="mx-auto mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground md:text-lg"
         >
           Frontend Engineer with{" "}
-          <span className="text-foreground">3+ years</span> of experience building scalable,
-          responsive, and performance-focused web applications using React.js and Next.js.
+          <span className="text-foreground">3+ years</span> of experience
+          building scalable, responsive, and performance-focused web
+          applications using React.js and Next.js.
         </motion.p>
 
         <motion.div
@@ -126,7 +147,11 @@ export function Hero() {
           <div className="h-10 w-6 rounded-full border border-white/15 p-1">
             <motion.div
               animate={{ y: [0, 12, 0] }}
-              transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.8,
+                ease: "easeInOut",
+              }}
               className="h-2 w-1 rounded-full bg-gradient-to-b from-violet-400 to-cyan-400 mx-auto"
             />
           </div>

@@ -1,4 +1,10 @@
-import { motion, useScroll, useTransform, useSpring, MotionStyle } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  MotionStyle,
+} from "framer-motion";
 import { ReactNode, useRef } from "react";
 
 type Props = {
@@ -21,11 +27,14 @@ export function Parallax({ children, offset = -120, className, style }: Props) {
     offset: ["start end", "end start"],
   });
   // Map 0..1 progress into a simple up/down translate value.
-  const y = useSpring(useTransform(scrollYProgress, [0, 1], [-offset, offset]), {
-    stiffness: 80,
-    damping: 22,
-    mass: 0.4,
-  });
+  const y = useSpring(
+    useTransform(scrollYProgress, [0, 1], [-offset, offset]),
+    {
+      stiffness: 80,
+      damping: 22,
+      mass: 0.4,
+    },
+  );
 
   return (
     <motion.div ref={ref} style={{ y, ...style }} className={className}>
