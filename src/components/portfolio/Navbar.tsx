@@ -33,7 +33,7 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-6xl px-4">
         <nav
-          className={`flex items-center justify-between rounded-2xl px-5 transition-all ${
+          className={`flex items-center justify-between rounded-2xl px-5 py-2 md:py-0 transition-all ${
             isScrolled
               ? "bg-background/60 backdrop-blur-sm border border-white/5 shadow-lg"
               : ""

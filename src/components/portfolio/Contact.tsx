@@ -224,8 +224,7 @@ export function Contact() {
           </div>
         </FadeIn>
         <div className="mt-12 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Mayur Mewada · Built with React, Tailwind
-          & Framer Motion
+          © {new Date().getFullYear()} Mayur Mewada
         </div>
       </div>
     </section>

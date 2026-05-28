@@ -82,7 +82,7 @@ export function About() {
             </Parallax>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <Parallax offset={60}>
+            <Parallax offset={20}>
               <div>
                 <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
                   Passionate frontend engineer with experience building scalable

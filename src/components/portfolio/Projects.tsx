@@ -75,7 +75,7 @@ export function Projects() {
         />
         <div className="grid gap-6 md:grid-cols-2">
           {projectList.map((project, index) => (
-            <Parallax key={project.title} offset={index % 2 === 0 ? -90 : 90}>
+            <Parallax key={project.title} offset={index % 2 === 0 ? -80 : 20}>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
